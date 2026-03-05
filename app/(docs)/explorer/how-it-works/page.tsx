@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { PageHeader, Step, InfoCard } from "@/components/docs-components"
+import { PageHeader, StepSection, InfoCard } from "@/components/docs-components"
 import {
   Table,
   TableHeader,
@@ -71,30 +71,24 @@ export default function HowItWorksPage() {
         />
       </div>
 
-      <h2 id="how-a-query-works">How a Query Works</h2>
-      <p>
-        When you look up an address, transaction, or block on OpenScan, the data
-        comes directly from blockchain nodes — not from a centralized database or
-        third-party API. Here is what happens under the hood:
-      </p>
-
-      <div className="not-prose mb-8">
-        <Step
-          number={1}
-          title="User Enters a Query"
-          description="You search for an address, transaction hash, block number, or ENS name"
-        />
-        <Step
-          number={2}
-          title="Direct RPC Execution"
-          description="The request is sent directly to blockchain. No backend server sits in between. The strategy pattern (fallback, race, or parallel) determines how multiple RPC endpoints are used for reliability and speed."
-        />
-        <Step
-          number={3}
-          title="Data Rendering"
-          description="The raw RPC response is parsed, formatted, and enriched with off-chain metadata"
-        />
-      </div>
+      <StepSection
+        title="How a Query Works"
+        description="When you look up an address, transaction, or block on OpenScan, the data comes directly from blockchain nodes — not from a centralized database or third-party API. Here is what happens under the hood:"
+        steps={[
+          {
+            title: "User Enters a Query",
+            description: "You search for an address, transaction hash, block number, or ENS name",
+          },
+          {
+            title: "Direct RPC Execution",
+            description: "The request is sent directly to blockchain. No backend server sits in between. The strategy pattern (fallback, race, or parallel) determines how multiple RPC endpoints are used for reliability and speed.",
+          },
+          {
+            title: "Data Rendering",
+            description: "The raw RPC response is parsed, formatted, and enriched with off-chain metadata",
+          },
+        ]}
+      />
 
       <h2 id="architecture">Architecture</h2>
       <p>
