@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { PageHeader, InfoCard } from "@/components/docs-components"
+import { PageHeader, InfoCard, LinkCard } from "@/components/docs-components"
 import {
   Globe,
   Blocks,
@@ -8,10 +8,8 @@ import {
   Wallet,
   Image,
   Settings,
-  ArrowRight,
 } from "lucide-react"
 import { NetworkIcon } from "@/components/network-icon"
-import Link from "next/link"
 
 export const metadata: Metadata = {
   title: "Explorer Functionalities",
@@ -33,30 +31,18 @@ export default function ExplorerFunctionalitiesPage() {
         
       </p>
       <div className="not-prose grid gap-4 sm:grid-cols-2 mb-8">
-        <Link href="/explorer/super-user" className="group !no-underline hover:!no-underline">
-          <div className="rounded-xl border border-border bg-card p-5 transition-colors hover:border-accent/40 h-full">
-            <h3 className="!mt-0 font-semibold text-foreground mb-1.5 flex items-center gap-2">
-              <Globe className="h-5 w-5 shrink-0 text-accent" />
-              Super User Mode
-              <ArrowRight className="h-3.5 w-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-            </h3>
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              Super user mode unlocks advanced controls. Raw information, dev Tools and technical analysis capabilities.
-            </p>
-          </div>
-        </Link>
-        <Link href="/explorer/settings" className="group !no-underline hover:!no-underline">
-          <div className="rounded-xl border border-border bg-card p-5 transition-colors hover:border-accent/40 h-full">
-            <h3 className="!mt-0 font-semibold text-foreground mb-1.5 flex items-center gap-2">
-              <Settings className="h-5 w-5 shrink-0 text-accent" />
-              Settings
-              <ArrowRight className="h-3.5 w-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-            </h3>
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              Comprehensive configuration options for appearance, language, cache management, RPC strategy, API keys, and per-network RPC editing.
-            </p>
-          </div>
-        </Link>
+        <LinkCard
+          href="/explorer/super-user"
+          title="Super User Mode"
+          description="Super user mode unlocks advanced controls. Raw information, dev Tools and technical analysis capabilities."
+          icon={<Globe className="h-5 w-5 shrink-0 text-accent" />}
+        />
+        <LinkCard
+          href="/explorer/settings"
+          title="Settings"
+          description="Comprehensive configuration options for appearance, language, cache management, RPC strategy, API keys, and per-network RPC editing."
+          icon={<Settings className="h-5 w-5 shrink-0 text-accent" />}
+        />
       </div>
 
       {/* ── Search ─────────────────────────────────────── */}
