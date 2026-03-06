@@ -5,14 +5,12 @@ import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import {
   Database,
-  GitCompare,
   Puzzle,
   Menu,
   X,
   Network,
   Compass,
   Sparkles,
-  Wrench,
   ChevronRight,
   HelpCircle,
   BookOpen,
@@ -34,9 +32,9 @@ type NavSection = {
 
 const navigation: NavSection[] = [
   {
-    title: "Introduction",
+    title: "",
     items: [
-      { title: "Welcome to OpenScan", href: "/welcome", icon: BookOpen },
+      { title: "Introduction", href: "/introduction", icon: BookOpen },
       { title: "Values", href: "/values", icon: Heart },
     ],
   },
@@ -55,10 +53,10 @@ const navigation: NavSection[] = [
           { title: "Super User", href: "/explorer/super-user" },
         ],
       },
-      { title: "Skills", href: "/skills", icon: Sparkles },
-      { title: "Hardhat Plugin", href: "/hardhat-plugin", icon: Puzzle },
       { title: "Network Connectors", href: "/network-connectors", icon: Network },
       { title: "Metadata", href: "/metadata", icon: Database },
+      { title: "Hardhat Plugin", href: "/hardhat-plugin", icon: Puzzle },
+      { title: "Skills", href: "/skills", icon: Sparkles },
       // { title: "Tools", href: "/tools", icon: Wrench },
     ],
   },
@@ -67,6 +65,9 @@ const navigation: NavSection[] = [
     items: [
       { title: "Tutorials", href: "/tutorials", icon: HelpCircle },
       // { title: "Comparison", href: "/comparison", icon: GitCompare },
+      { title: "Subscriptions", href: "/subscriptions", icon: Heart },
+      { title: "Contact", href: "/contact", icon: HelpCircle },
+      // { title: "Supporters", href: "/supporters", icon: HelpCircle },
       // { title: "FAQs", href: "/faqs", icon: HelpCircle },
     ],
   },
@@ -174,7 +175,7 @@ export function DocsSidebar() {
     <aside className="hidden lg:flex lg:w-64 lg:shrink-0 lg:flex-col border-r border-border">
       <div className="sticky top-0 flex h-full max-h-screen flex-col overflow-y-auto px-4 pb-8">
         <div className="flex h-14 items-center border-b border-border px-2">
-          <Link href="/welcome" className="flex items-center gap-2">
+          <Link href="/introduction" className="flex items-center gap-2">
             <img src="/openscan-logo.svg" alt="OpenScan" className="h-5 w-5" />
             <span className="font-semibold text-foreground tracking-tight">
               OpenScan Docs
@@ -193,7 +194,7 @@ export function MobileNav() {
   return (
     <div className="lg:hidden">
       <div className="flex h-14 items-center justify-between border-b border-border px-4">
-        <Link href="/welcome" className="flex items-center gap-2">
+        <Link href="/introduction" className="flex items-center gap-2">
           <img src="/openscan-logo.svg" alt="OpenScan" className="h-5 w-5" />
           <span className="font-semibold text-foreground tracking-tight">
             OpenScan Docs
